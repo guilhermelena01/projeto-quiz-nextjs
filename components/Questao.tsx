@@ -2,8 +2,17 @@ import QuestaoModel from "@/model/questao";
 import styles from "@/styles/Questao.module.css"
 import Enunciado from "./Enunciado";
 import Resposta from "./Resposta";
+
+const letra = [
+    {valor: 'A', cor:"#F2C866" },
+    {valor: 'B', cor:"#F266BA" },
+    {valor: 'C', cor:"#85D4F2" },
+    {valor: 'D', cor:"#BCE596" }
+]
+
 interface QuestaoProps {
     valor: QuestaoModel
+    respostaFornecida: (indice: number) => void
 }
 
 export default function Questao(props: QuestaoProps) {
@@ -18,8 +27,9 @@ export default function Questao(props: QuestaoProps) {
                     key={i}
                     valor={resposta}
                     indice={i}
-                    letra="A"
-                    corFundoLetra="#F2C866"
+                    letra={letra[i].valor}
+                    corFundoLetra={letra[i].cor}
+                    respostaFornecida={props.respostaFornecida}
                 />
             )
         })
