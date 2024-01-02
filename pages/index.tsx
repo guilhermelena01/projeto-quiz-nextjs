@@ -10,7 +10,15 @@ export default function Home() {
         RespostasModel.errada('Azul'),
         RespostasModel.certa('Preta')
     ])
-  return (
-    <Questao valor={questao}/>
-  )
+    return (
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+        }}>
+            <Questao valor={questao} />
+        </div>
+
+    )
 }
