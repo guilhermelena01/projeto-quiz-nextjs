@@ -1,5 +1,6 @@
 import Botao from "@/components/Botao";
 import Questao from "@/components/Questao";
+import Questionario from "@/components/Questionario";
 import QuestaoModel from "@/model/questao";
 import RespostasModel from "@/model/respostas";
 import { useState } from "react";
@@ -16,6 +17,13 @@ export default function Home() {
 
     const [questao, setQuestao] = useState(questaoMock)
 
+    function questaoRespondida(questao: QuestaoModel) {
+
+    }
+
+    function irPraProximoPasso() {
+
+    }
 
     function respostaFornecida(indice: number) {
         console.log(indice);
@@ -34,12 +42,12 @@ export default function Home() {
             alignItems: 'center',
             height: '100vh',
         }}>
-            <Questao valor={questao}
-                tempoPraResposta={5}
-                respostaFornecida={respostaFornecida}
-                tempoEsgotado={tempoEsgotado}
+            <Questionario
+             questao={questao}
+             ultima={false}
+             questaoRespondida={questaoRespondida}
+             irPraProximoPasso={irPraProximoPasso}
             />
-            <Botao texto="Teste" />
         </div>
 
     )
