@@ -27,7 +27,7 @@ export default function Home() {
 
     useEffect(() => {
         carregarIdsDasQuestoes()
-    },[])
+    }, [])
 
     useEffect(() => {
         idsDasQuestoes.length > 0 && carregarQuestao(idsDasQuestoes[0])
@@ -40,10 +40,8 @@ export default function Home() {
     }
 
     function idProximaPergunta() {
-        if (questao) {
-            const proximoIndice = idsDasQuestoes.indexOf(questao.id) + 1
-            return idsDasQuestoes[proximoIndice]
-        }
+        const proximoIndice = idsDasQuestoes.indexOf(questao.id) + 1
+        return idsDasQuestoes[proximoIndice]
     }
 
     function irPraProximoPasso() {
@@ -65,14 +63,11 @@ export default function Home() {
         })
     }
 
-    return (
+    return questao ? (
         <Questionario
-            questao={questao}
-            ultima={idProximaPergunta() === undefined}
-            questaoRespondida={questaoRespondida}
-            irPraProximoPasso={irPraProximoPasso}
-        />
-
-
-    )
+            questao = { questao }
+            ultima = { idProximaPergunta() === undefined}
+            questaoRespondida = { questaoRespondida }
+            irPraProximoPasso = { irPraProximoPasso }/>
+    ):  false
 }
